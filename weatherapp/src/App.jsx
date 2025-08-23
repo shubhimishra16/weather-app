@@ -76,7 +76,7 @@ const fetchSuggestions = async (query) => {
       <div className="flex items-center justify-center p-6 min-h-screen">
         <div className="bg-transparent backdrop-filter backdrop-blur-md rounded-xl shadow-2xl p-8 max-w-md 
         text-white w-full border border-white/30 relative z-10">
-          <h1 className="text-4xl font extrabold text-center mb-6">
+          <h1 className="text-4xl fon-extrabold text-center mb-6">
             Weather App
           </h1>
 
@@ -113,7 +113,7 @@ const fetchSuggestions = async (query) => {
                   {weather.name}
                 </h2>
                 <button onClick={() => setUnit(u => u==='C' ? 'F' : 'C')}
-                  className='bg-blue-700 hover:bg-blue-800 text-whitefont-semibold py-1 px-3 rounded transition-colors'>
+                  className='bg-blue-700 hover:bg-blue-800 text-white font-semibold py-1 px-3 rounded transition-colors'>
                     &deg;{unit}
                 </button>
               </div>
@@ -129,10 +129,10 @@ const fetchSuggestions = async (query) => {
                   [HumidityIcon, 'Humidity', `${weather.main.humidity}%
                     (${getHumidityValue(weather.main.humidity)})`],
                     [getWindDirection, 'Wind', `${weather.wind.speed} m/s ${weather.wind.deg ?
-                      `(${getWindDirection(weather.main.humidity)})` : ''}`],
+                       `(${getWindDirection(weather.wind.deg)})` : ''}`],
                       [VisibilityIcon, 'Visibility', getVisibilityValue(weather.visibility)]
                 ].map(([Icon, label, value]) =>(
-                  <div key={label} className='flex flex-col items-cemter m-2'>
+                  <div key={label} className='flex flex-col items-center m-2'>
                     <Icon/>
                     <p className='mt-1 font-semibold'>{label}</p>
                     <p className='text-sm'>{value}</p>
@@ -143,7 +143,7 @@ const fetchSuggestions = async (query) => {
                 {[
                   [SunriseIcon, 'Sunrise', weather.sys.sunrise],
                   [SunsetIcon, 'Sunset', weather.sys.sunset]                
-                ].map(([Icon, label, time]) => {
+                ].map(([Icon, label, time]) => (
                   <div key={label} className='flex flex-col items-center'>
                     <Icon/>
                     <p className='mt-1 font-semibold'>{label}</p>
@@ -153,7 +153,7 @@ const fetchSuggestions = async (query) => {
                       )}
                     </p>
                   </div>
-                })}
+                ))}
               </div>
               <div className='mt-6 text-sm'>
                 <p><strong>Feels Like:</strong> {convertTemperature(weather.main.feels_like, unit)} &deg;{unit}</p>
