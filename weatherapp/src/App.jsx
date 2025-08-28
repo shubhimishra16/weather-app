@@ -14,7 +14,7 @@ const App = () => {
   const[error, setError] = useState('');
   
 
-const API_KEY = 'ca9e8e57d54ac1ce482f9360de8f2437'
+const API_KEY = 'YOUR_API_KEY'
 
 useEffect(() => {
   if(city.trim().length >= 3 && !weather){
